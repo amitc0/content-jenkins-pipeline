@@ -1,21 +1,3 @@
-Skip to content
-This repository
-Search
-Pull requests
-Issues
-Gist
- @amitc0
- Sign out
- Watch 4
-  Star 0
-  Fork 9 linuxacademy/content-jenkins-java-project
- Code  Issues 0  Pull requests 1  Projects 0  Wiki  Pulse  Graphs
-Branch: master Find file Copy pathcontent-jenkins-java-project/build.xml
-17e224c  on Mar 16
-@labmac labmac adding tagging and major version
-1 contributor
-RawBlameHistory     
-49 lines (40 sloc)  1.46 KB
 <?xml version="1.0"?>
 <project name="Rectangle-Build" default="main" basedir=".">
   <property environment="env"/>
@@ -64,5 +46,3 @@ RawBlameHistory
   </target>
 
 </project>
-Contact GitHub API Training Shop Blog About
-© 2017 GitHub, Inc. Terms Privacy Security Status Help
