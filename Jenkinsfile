@@ -15,7 +15,7 @@ pipeline {
 	steps {
            sh 'ant -f build.xml -v'
 	}
-    }:wq
+    }
 
     stage ('deploy') {
     	steps {
