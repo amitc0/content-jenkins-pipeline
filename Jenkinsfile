@@ -33,14 +33,14 @@ pipeline {
            sh "cp dist/rectangle_${env.BUILD_NUMBER}.jar /var/www/html/rectangles/all/"
         }
    }
-   stage("Running on CentOS") {
-     agent {
-       label 'CentOS'
-     }
-     Steps {
-       sh "wget http://amitco4.mylabserver.com/rectangles/all/rectangle_${env.BUILD_NUMBER}.jar"
-       sh "java -jar rectangle_${env.BUILD_NUMBER}.jar 3 4"
-     }
-   }
+       stage("Running on CentOS") {
+      agent {
+        label 'CentOS'
+      }
+      steps {
+        sh "wget http://brandon4231.mylabserver.com/rectangles/all/${env.BRANCH_NAME}/rectangle_${env.BUILD_NUMBER}.jar"
+        sh "java -jar rectangle_${env.BUILD_NUMBER}.jar 3 4"
+      }
+    }
  }
 }
