@@ -17,7 +17,12 @@ pipeline {
       }
          steps {
            sh 'ant -f build.xml -v'
+        }
+        post {
+          success {
+          archiveArtifacts artifacts:  'dist/*.jar', fingerprint: true
           }
+        }
     }
 
     stage ('deploy') {
@@ -28,7 +33,7 @@ pipeline {
             sh "cp dist/rectangle_${env.BUILD_NUMBER}.jar /var/www/html/rectangles/all/"
       }
     }
-    stage("Running on CentOS"){
+    stage("Running on CentOS") {
       agent {
         label 'CentOS'
       }
@@ -40,10 +45,6 @@ pipeline {
 
   }
 
-  post {
-    always {
-    archiveArtifacts artifacts:  'dist/*.jar', fingerprint: true
-    }
-  }
+
 
 }
