@@ -11,7 +11,7 @@ pipeline {
                 junit 'reports/result.xml'
       }
     }
-  }
+  
   stage('build') {
       agent {
         label 'apache'
