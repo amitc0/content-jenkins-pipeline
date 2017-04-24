@@ -33,7 +33,7 @@ pipeline {
            sh "cp dist/rectangle_${env.BUILD_NUMBER}.jar /var/www/html/rectangles/all/"
         }
    }
-       stage("Running on CentOS") {
+   stage("Running on CentOS") {
       agent {
         label 'CentOS'
       }
@@ -41,6 +41,15 @@ pipeline {
         sh "wget http://amitco4.mylabserver.com/rectangles/all/rectangle_${env.BUILD_NUMBER}.jar"
         sh "java -jar rectangle_${env.BUILD_NUMBER}.jar 3 4"
       }
-    }
+   }
+    stage("Test on Debian") {
+      agent {
+        docker 'openjdk:8u121-jre'
+      }
+      steps {
+        sh "wget http://amitco4.mylabserver.com/rectangles/all/rectangle_${env.BUILD_NUMBER}.jar"
+        sh "java -jar rectangle_${env.BUILD_NUMBER}.jar 3 4"
+      }
+   }
  }
 }
